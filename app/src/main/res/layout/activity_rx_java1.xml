@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_rxjava1"
+        style="@style/TextStyle"
+        android:text="订阅mObservable1"/>
+
+    <Button
+        android:id="@+id/btn_rxjava2"
+        style="@style/TextStyle"
+        android:text="订阅mObservable2"/>
+
+    <Button
+        android:id="@+id/btn_rxjava3"
+        style="@style/TextStyle"
+        android:text="订阅mObservable3"/>
+
+    <Button
+        android:id="@+id/btn_rxjava4"
+        style="@style/TextStyle"
+        android:text="订阅mObservable4"/>
+
+    <Button
+        android:id="@+id/btn_rxjava5"
+        style="@style/TextStyle"
+        android:text="订阅mObservable5"/>
+
+    <Button
+        android:id="@+id/btn_rxjava6"
+        style="@style/TextStyle"
+        android:text="订阅mObservable6"/>
+</LinearLayout>

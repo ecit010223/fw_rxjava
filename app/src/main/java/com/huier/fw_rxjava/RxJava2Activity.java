@@ -19,13 +19,12 @@ import io.reactivex.schedulers.Schedulers;
  * 正常情况下,上游和下游是工作在同一个线程中的,也就是说上游在哪个线程发事件,下游就在哪个线程接收事件。
  */
 public class RxJava2Activity extends AppCompatActivity implements View.OnClickListener {
-    private static final String TAG = "tag";
     private Button btnRxJava2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rx_java2);
-        Log.d(TAG, Thread.currentThread().getName());
+        Log.d(Constant.TAG, Thread.currentThread().getName());
         initView();
     }
 
@@ -81,14 +80,14 @@ public class RxJava2Activity extends AppCompatActivity implements View.OnClickLi
                 .doOnNext(new Consumer<Integer>() {
                     @Override
                     public void accept(Integer integer) throws Exception {
-                        Log.d(TAG, "After observeOn(mainThread), current thread is: " + Thread.currentThread().getName());
+                        Log.d(Constant.TAG, "After observeOn(mainThread), current thread is: " + Thread.currentThread().getName());
                     }
                 })
                 .observeOn(Schedulers.io())
                 .doOnNext(new Consumer<Integer>() {
                     @Override
                     public void accept(Integer integer) throws Exception {
-                        Log.d(TAG, "After observeOn(io), current thread is : " + Thread.currentThread().getName());
+                        Log.d(Constant.TAG, "After observeOn(io), current thread is : " + Thread.currentThread().getName());
                     }
                 })
                 .subscribe(consumer);
@@ -97,8 +96,8 @@ public class RxJava2Activity extends AppCompatActivity implements View.OnClickLi
     Observable<Integer> observable = Observable.create(new ObservableOnSubscribe<Integer>() {
         @Override
         public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
-            Log.d(TAG, "Observable thread is : " + Thread.currentThread().getName());
-            Log.d(TAG, "emit 1");
+            Log.d(Constant.TAG, "Observable thread is : " + Thread.currentThread().getName());
+            Log.d(Constant.TAG, "emit 1");
             emitter.onNext(1);
         }
     });
@@ -106,8 +105,8 @@ public class RxJava2Activity extends AppCompatActivity implements View.OnClickLi
     Consumer<Integer> consumer = new Consumer<Integer>() {
         @Override
         public void accept(Integer integer) throws Exception {
-            Log.d(TAG, "Observer thread is :" + Thread.currentThread().getName());
-            Log.d(TAG, "onNext: " + integer);
+            Log.d(Constant.TAG, "Observer thread is :" + Thread.currentThread().getName());
+            Log.d(Constant.TAG, "onNext: " + integer);
         }
     };
 }

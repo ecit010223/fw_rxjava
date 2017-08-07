@@ -14,14 +14,13 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.plugins.RxJavaPlugins;
 
 public class RxJava3Activity extends AppCompatActivity {
-    private static final String TAG = "tag";
 
     static {
         RxJavaPlugins.setErrorHandler(new Consumer<Throwable>() {
             @Override
             public void accept(Throwable throwable) throws Exception {
                 if (throwable instanceof InterruptedIOException) {
-                    Log.d(TAG, "Io interrupted");
+                    Log.d(Constant.TAG, "Io interrupted");
                 }
             }
         });
@@ -31,7 +30,7 @@ public class RxJava3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rx_java3);
-        Log.d(TAG, Thread.currentThread().getName());
+        Log.d(Constant.TAG, Thread.currentThread().getName());
 
         findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
             @Override
