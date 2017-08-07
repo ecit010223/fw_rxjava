@@ -135,7 +135,10 @@ public class RxJava1Activity extends AppCompatActivity implements View.OnClickLi
         /**
          * Disposable：相当于水管（被观察者属于下游，观察者属于下游）, 我们可以把它理解成两根管道之间的一个机关,
          * 当调用它的dispose()方法时, 它就会将两根管道切断, 从而导致下游收不到事件。
-         *
+         * 获取Disposable对象的方式一：如下方法中包含一个Disposable对象，调用该方法的dispose()方法即切断连接
+         * 获取Disposable对象的方式二：当用subscribe()订阅传递的参数为Consumer等其它类型时，这些类型没有成员
+         *     函数获取了Disposable对象，则可通过subscribe()方法的返回值（为Disposable对象），
+         *     见subscribe1()方法
          */
         @Override
         public void onSubscribe(@NonNull Disposable d) {
@@ -300,7 +303,7 @@ public class RxJava1Activity extends AppCompatActivity implements View.OnClickLi
     /*********观察者模式的实现：Observable(被观察者)只有在被Observer(观察者)订阅后才能执行其内部的相关逻辑 ***********/
     /** 方式一 **/
     private void subscribe1(){
-        Observable.just("hello").subscribe(new Consumer<String>() {
+        Disposable disposable = Observable.just("hello").subscribe(new Consumer<String>() {
             @Override
             public void accept(String s) throws Exception {
                 Log.d(Constant.TAG,"Consumer : "+s);

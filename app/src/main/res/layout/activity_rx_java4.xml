@@ -5,4 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/btn_scheduler"
+        style="@style/TextStyle"
+        android:text="线程调度一"/>
+    <Button
+        android:id="@+id/btn_io_schoduler"
+        style="@style/TextStyle"
+        android:text="io线程调度"/>
 </LinearLayout>
