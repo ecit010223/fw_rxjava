@@ -2,8 +2,41 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
     <Button
-        style="@style/TextStyle"/>
+        android:id="@+id/btn_error_example"
+        style="@style/TextStyle"
+        android:text="易出错实例"/>
+
+    <Button
+        android:id="@+id/btn_missing_backpressure"
+        style="@style/TextStyle"
+        android:text="MissingBackpressureException"/>
+
+    <Button
+        android:id="@+id/btn_backpressure_error"
+        style="@style/TextStyle"
+        android:text="BackpressureStrategy.ERROR"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_backpressure_drop"
+            style="@style/TextStyle"
+            android:layout_weight="1"
+            android:text="BPressureStrategy.DROP"/>
+
+        <Button
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:onClick="consume"
+            android:text="consume"/>
+    </LinearLayout>
 </LinearLayout>
