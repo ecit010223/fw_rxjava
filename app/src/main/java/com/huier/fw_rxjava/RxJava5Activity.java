@@ -159,7 +159,9 @@ public class RxJava5Activity extends AppCompatActivity implements View.OnClickLi
                 Log.d(Constant.TAG, "onComplete");
             }
         };
-        flowable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(subscriber);
+        flowable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
     }
 
     private void backpressureStrategyERROR(){
