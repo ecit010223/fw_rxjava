@@ -87,12 +87,12 @@ public class RxJava4Activity extends AppCompatActivity implements View.OnClickLi
                 e.onNext(1);
             }
         }).subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<Integer>() {
-            @Override
-            public void accept(Integer integer) throws Exception {
-                Log.d(Constant.TAG,"接收数据所在的线程："+Thread.currentThread().getName());
-                Log.d(Constant.TAG, "接收到的数据："+"integer：" + integer);
+          .observeOn(AndroidSchedulers.mainThread())
+          .subscribe(new Consumer<Integer>() {
+              @Override
+              public void accept(Integer integer) throws Exception {
+                  Log.d(Constant.TAG,"接收数据所在的线程："+Thread.currentThread().getName());
+                  Log.d(Constant.TAG, "接收到的数据："+"integer：" + integer);
             }
         });
     }

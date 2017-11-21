@@ -194,7 +194,6 @@ public class RxJava1Activity extends AppCompatActivity implements View.OnClickLi
      * 事件序列就会依照设定依次触发(对于上面的代码，就是观察者ObservableEmitter将会被调用三次onNext()和一次onCompleted())。
      * 这样，由被观察者调用了观察者的回调方法，就实现了由被观察者向观察者的事件传递，即观察者模式。
      * create()方法是RxJava最基本的创造事件序列的方法。
-     *
      */
     private Observable<String> createObservable1(){
         Observable<String> observable = Observable.create(new ObservableOnSubscribe<String>() {
